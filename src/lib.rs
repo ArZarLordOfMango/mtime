@@ -1,12 +1,12 @@
 #![allow(dead_code)]
 
 // Start Date: 00:00:00 1 January 2000 🥭
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct MTime {
     pub time: u64,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Date {
     pub year: String,
     pub month: String,
