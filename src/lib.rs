@@ -1,4 +1,6 @@
-// Start Date: 00:00:00 1 January 2000
+#![allow(dead_code)]
+
+// Start Date: 00:00:00 1 January 2000 🥭
 pub struct MTime {
     pub time: u64,
 }
