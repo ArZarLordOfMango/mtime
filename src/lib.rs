@@ -54,7 +54,7 @@ impl MTime {
     }
 
     pub fn get_visual_seconds(&self) -> String {
-        if self.get_seconds() < 10 {"0".to_string() + self.get_seconds().to_string().as_str()} else {self.get_seconds().to_string()} 
+        format!("{:02}", self.get_seconds())
     }
  
     pub fn get_minutes(&self) -> u8 {
@@ -63,7 +63,7 @@ impl MTime {
     }
  
     pub fn get_visual_minutes(&self) -> String {
-        if self.get_minutes() < 10 {"0".to_string() + self.get_minutes().to_string().as_str()} else {self.get_minutes().to_string()} 
+        format!("{:02}", self.get_minutes())
     }
     
     pub fn get_hours(&self) -> u8 {
@@ -72,7 +72,7 @@ impl MTime {
     }
 
     pub fn get_visual_hours(&self) -> String {
-        if self.get_hours() < 10 {"0".to_string() + self.get_hours().to_string().as_str()} else {self.get_hours().to_string()} 
+        format!("{:02}", self.get_hours())
     }
 
     pub fn get_day(&self) -> u8 {
@@ -93,7 +93,7 @@ impl MTime {
     }
     
     pub fn get_visual_day(&self) -> String {
-        if self.get_day() < 10 {"0".to_string() + self.get_day().to_string().as_str()} else {self.get_day().to_string()} 
+        format!("{:02}", self.get_day())
     }
 
     pub fn get_month(&self) -> u8 {
@@ -114,7 +114,7 @@ impl MTime {
     }
 
     pub fn get_visual_month(&self) -> String {
-        if self.get_month() < 10 {"0".to_string() + self.get_month().to_string().as_str()} else {self.get_month().to_string()} 
+        format!("{:02}", self.get_month())
     }
 
     pub fn get_month_name(&self) -> &str {
