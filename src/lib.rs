@@ -6,7 +6,7 @@ pub struct MTime {
     pub time: u64,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Eq, PartialEq)]
 pub struct Date {
     pub year: String,
     pub month: String,
