@@ -8,6 +8,7 @@ version = "1.1.4"
 name = "mtime"
 
 [[test]]
+name = "mtime"
 path = "tests/test.rs"
 
 [dependencies]
