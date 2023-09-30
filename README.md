@@ -47,18 +47,18 @@ Start point(SP) it's 00:00:00 01.01.2000.
 
 ```rust
 // Create a new instance of Mtime
-let example = mtime::Mtime::new(1234);
+let example = mtime::MTime::new(1234);
 ```
 
 ```rust
 // Get how many seconds from 0 to 59
-let example = mtime::Mtime::new(1234);
+let example = mtime::MTime::new(1234);
 println!("Seconds: {}", example.get_visual_seconds());
 ```
 
 ```rust
 // Exmaple work with Date
-let example = mtime::Mtime::new(1234); 
+let example = mtime::MTime::new(1234); 
 let example_date = exmaple.get_date(); 
 println!("{}", exmaple_date.format("%h:%m:%s %D.%M.%Y")); 
 ```
