@@ -21,7 +21,7 @@ Start point(SP) it's 00:00:00 01.01.2000.
 | get_visual_day()     | String      | returns the formatted day.                       |
 | get_month()          | u8          | returns the month number.                        |
 | get_visual_month()   | String      | returns the formatted month number.              |
-| get_month_name()     | &str        | returns the month name.                          |
+| get_month_name()     | String      | returns the month name.                          |
 | get_year()           | u64         | returns the year.                                |
 | get_visual_year()    | String      | returns the formatted year.                      |
 | get_date()           | Date        | returns Date                                     |
