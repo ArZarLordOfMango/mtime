@@ -60,5 +60,5 @@ println!("Seconds: {}", example.get_visual_seconds());
 // Exmaple work with Date
 let example = mtime::MTime::new(1234); 
 let example_date = exmaple.get_date(); 
-println!("{}", exmaple_date.format("%h:%m:%s %D.%M.%Y")); 
+println!("{}", example_date.format("%h:%m:%s %D.%M.%Y")); 
 ```
