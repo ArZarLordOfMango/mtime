@@ -117,7 +117,7 @@ impl MTime {
         format!("{:02}", self.get_month())
     }
 
-    pub fn get_month_name(&self) -> &str {
+    pub fn get_month_name(&self) -> String {
         const MONTHS: [&str; 12] = [
             "January", "February", "March", "April", "May", "June",
             "July", "August", "September", "October", "November", "December"
@@ -135,7 +135,7 @@ impl MTime {
                 i = 0;
             }
         }
-        MONTHS[i]
+        MONTHS[i].to_string()
     }
 
     pub fn get_year(&self) -> u64 {
