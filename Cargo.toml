@@ -11,4 +11,9 @@ name = "mtime"
 name = "mtime"
 path = "tests/test.rs"
 
+[examples]
+example0 = "examples/example0.rs"
+example1 = "examples/example1.rs"
+example2 = "examples/example2.rs"
+
 [dependencies]
