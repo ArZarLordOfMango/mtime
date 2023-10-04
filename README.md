@@ -43,22 +43,6 @@ Start point(SP) it's 00:00:00 01.01.2000.
 | %M                   | month       |
 | %Y                   | year        |
 
-## Example
+## Examples
 
-```rust
-// Create a new instance of Mtime
-let example = mtime::MTime::new(1234);
-```
-
-```rust
-// Get how many seconds from 0 to 59
-let example = mtime::MTime::new(1234);
-println!("Seconds: {}", example.get_visual_seconds());
-```
-
-```rust
-// Exmaple work with Date
-let example = mtime::MTime::new(1234); 
-let example_date = exmaple.get_date(); 
-println!("{}", example_date.format("%h:%m:%s %D.%M.%Y")); 
-```
+[Examples](https://github.com/ArZarLordOfMango/mtime/tree/main/examples)
