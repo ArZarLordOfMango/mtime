@@ -1,3 +1,9 @@
+### [1.2.1]
+
+-Making changes to documentation
+
+-Fix bug
+
 ### [1.2.0]
 
 -Create CHANGELOG

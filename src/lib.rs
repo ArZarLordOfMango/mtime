@@ -72,7 +72,7 @@ impl DateBuilder {
         if year_int <= 1999 {
             return Err("DateBuildError: Year must be >= 2000.".to_string());
         }
-        if month_int > 11 {
+        if month_int > 12 {
             return Err("DateBuildError: Month must be <= 12.".to_string());
         }
         

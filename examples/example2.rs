@@ -1,10 +1,7 @@
 extern crate mtime;
 
 fn main() {
-    // Create a new instance of Mtime
-    let example = mtime::MTime::new(1234); 
-    // Create a new instance of Date
-    let example_date = example.get_date(); 
-    // Print Date in format %h:%m:%s %D.%M.%Y
-    println!("{}", example_date.format("%h:%m:%s %D.%M.%Y")); 
+    let example =  mtime::MTime::new(366000); 
+    let example_date = example.get_date();
+    println!("Formatted Date: {}", example_date.format("%Y-%M-%D %h:%m:%s")); // Example format
 }
