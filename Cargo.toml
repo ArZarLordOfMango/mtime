@@ -2,7 +2,7 @@
 name = "mtime"
 description = "Unix time like library on Rust"
 authors = ["ArZarLordOfMango", "Nebagibuappu"]
-version = "1.2.1"
+version = "1.2.2"
 
 [lib]
 name = "mtime"
@@ -15,5 +15,8 @@ path = "tests/test.rs"
 example0 = "examples/example0.rs"
 example1 = "examples/example1.rs"
 example2 = "examples/example2.rs"
+example3 = "examples/example3.rs"
+example4 = "examples/example4.rs"
+example5 = "examples/example5.rs"
 
 [dependencies]

@@ -53,6 +53,7 @@ The `Date` struct represents a date and time and provides methods for formatting
 |----------------------------------|------------------------|------------------------------------------------------------|
 | `format(format: &str)`           | `String`               | Formats the date according to the specified format string. |
 | `from_string(date_string: &str)` | `Result<Date, String>` | Create Date from string(%h-%m-%s-%D-%M-%Y format only‼️).   |
+| `get_time()`                     | `u64`                  | Give count seconds from SP to Date.                        |
 
 ## Date Format Codes
 

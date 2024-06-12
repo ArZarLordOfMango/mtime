@@ -5,7 +5,7 @@ fn main() {
     // Getting various time-related information
     println!("Days: {}", example.get_count_days()); // Number of days
     println!("Years: {}", example.get_count_years()); // Number of years
-    println!("Is Leap Year? {}", example.is_leap_year()); // Checking if it's a leap year
+    println!("Is Leap Year? {}", mtime::MTime::is_leap_year(example.get_year())); // Checking if it's a leap year
     println!("Hours: {}", example.get_visual_hours()); // Hours (formatted)
     println!("Minutes: {}", example.get_visual_minutes()); // Minutes (formatted)
     println!("Seconds: {}", example.get_visual_seconds()); // Seconds (formatted)

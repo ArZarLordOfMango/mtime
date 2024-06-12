@@ -1,3 +1,9 @@
+### [1.2.2]
+
+-Added Date change in count seconds
+
+-Fix bug
+
 ### [1.2.1]
 
 -Making changes to documentation

@@ -154,6 +154,31 @@ impl Date {
             .replace("%Y", &self.year.to_string());
         formatted_string
     }
+
+    pub fn get_time(&self) -> u64 {
+        let year: u64 = self.year.parse().unwrap();
+        let month: u64 = self.month.parse().unwrap();
+        let day: u64 = self.day.parse().unwrap();
+        let hour: u64 = self.hour.parse().unwrap();
+        let minute: u64 = self.minute.parse().unwrap();
+        let second: u64 = self.second.parse().unwrap();
+    
+        let month_array: [u64; 12] = [
+            0, 2678400, 5097600, 7776000, 10368000, 13046400,
+            15638400, 18316800, 20995200, 23587200, 26265600, 28857600,
+        ];
+        
+        let mut buffer_time: u64 = 0;
+        buffer_time += (year - 2000) * 31536000;
+        buffer_time += 86400 * (((year - 1) - 2000) / 4);
+        buffer_time += if year % 4 == 0 && month >= 3 { 86400 } else { 0 };
+        buffer_time += month_array[(month - 1) as usize]; 
+        buffer_time += day * 86400;
+        buffer_time += hour * 3600;
+        buffer_time += minute * 60;
+        buffer_time += second;
+        buffer_time
+    }
 }
 
 impl MTime {
@@ -169,8 +194,8 @@ impl MTime {
         self.get_count_days() / 365
     }
 
-    pub fn is_leap_year(&self) -> bool {
-        self.get_count_days() % (365 * 3 + 366) <= 366
+    pub fn is_leap_year(year: u64) -> bool {
+        (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)
     }
 
     pub fn get_seconds(&self) -> u8 {
@@ -204,21 +229,30 @@ impl MTime {
         let mut days = self.get_count_days();
         let mut month_array: [u64; 12] = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
         let mut i: usize = 0;
-        while month_array[i] < days {
-            if self.is_leap_year() && i == 0 {
-                month_array[1] += 1;
+        let mut year = 2000;
+        
+        while days >= 365 {
+            if MTime::is_leap_year(year) {
+                if days < 366 {
+                    break;
+                }
+                days -= 366;
+            } else {
+                days -= 365;
             }
+            year += 1;
+        }
+
+        if MTime::is_leap_year(year) {
+            month_array[1] = 29;
+        }
+
+        while days >= month_array[i] {
             days -= month_array[i];
             i += 1;
-            if i == 12 {
-                i = 0;
-            }
         }
-        if days == 0 {
-            (days + 1) as u8
-        } else {
-            days as u8
-        }
+
+        (days + 1) as u8
     }
 
     pub fn get_visual_day(&self) -> String {
@@ -229,16 +263,29 @@ impl MTime {
         let mut days = self.get_count_days();
         let mut month_array: [u64; 12] = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
         let mut i: usize = 0;
-        while month_array[i] < days {
-            if self.is_leap_year() && i == 0 {
-                month_array[1] += 1;
+        let mut year = 2000;
+
+        while days >= 365 {
+            if MTime::is_leap_year(year) {
+                if days < 366 {
+                    break;
+                }
+                days -= 366;
+            } else {
+                days -= 365;
             }
+            year += 1;
+        }
+
+        if MTime::is_leap_year(year) {
+            month_array[1] = 29;
+        }
+
+        while days >= month_array[i] {
             days -= month_array[i];
             i += 1;
-            if i == 12 {
-                i = 0;
-            }
         }
+
         (i + 1) as u8
     }
 
@@ -248,32 +295,45 @@ impl MTime {
 
     pub fn get_month_name(&self) -> String {
         const MONTHS: [&str; 12] = [
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
+            "January", 
+            "February", 
+            "March", 
+            "April", 
+            "May", 
+            "June", 
+            "July", 
+            "August", 
             "September",
-            "October",
-            "November",
+            "October", 
+            "November", 
             "December",
         ];
         let mut days = self.get_count_days();
         let mut month_array: [u64; 12] = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        let mut year = 2000;
         let mut i: usize = 0;
-        while month_array[i] < days {
-            if self.is_leap_year() && i == 0 {
-                month_array[1] += 1;
+        
+        while days >= 365 {
+            if MTime::is_leap_year(year) {
+                if days < 366 {
+                    break;
+                }
+                days -= 366;
+            } else {
+                days -= 365;
             }
+            year += 1;
+        }
+        
+        if MTime::is_leap_year(year) {
+            month_array[1] = 29;
+        }
+    
+        while days >= month_array[i] {
             days -= month_array[i];
             i += 1;
-            if i == 12 {
-                i = 0;
-            }
         }
+    
         MONTHS[i].to_string()
     }
 

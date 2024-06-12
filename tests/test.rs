@@ -11,6 +11,6 @@ fn format_date() {
 #[test]
 fn leap_year() {
     let test = mtime::MTime::new(123456789);
-    let test_is_leap_year = test.is_leap_year();
+    let test_is_leap_year = mtime::MTime::is_leap_year(test.get_year());
     assert_eq!(test_is_leap_year, false);
 }
